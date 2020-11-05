@@ -1,0 +1,22 @@
+
+There are two main programs,
+RCDAQ_TO_HITS.cpp         from daq raw data to hits-> output QA plots and Tree ( filein.root -> filein_HITS.root)
+
+HITS_TO_CENTROID.cpp      from hits to centroid calculation -> output QA plots and txt file with position values
+                                                                               (filein_HITS.root_CENTROID.root and filein_HITS.root_CENTROID.root.txt)
+                          content filein_HITS.root_CENTROID.root.txt:
+			  file.Data() << " "<< kResidual_MeanX<<" "<<kResidual_MeanX_er<<" "<<kResidual_SigmaX<<" "<<kResidual_SigmaX_er << " "
+					    << kResidual_MeanY<<" "<<kResidual_MeanY_er<<" "<<kResidual_SigmaY<<" "<<kResidual_SigmaY_er <<" \n"
+
+
+TO COMPILE AND RUN
+
+
+>make
+
+>doone.sh      run only one example file
+> dojob.sh     run all the files from a txt file , in this case runs_trial1.dat
+
+
+Macro to read the result plot_resol.C ( you need to merge all the txt file together >> cat *.txt> outfile.txt)
+> root -l plot_resol.C
